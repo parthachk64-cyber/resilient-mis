@@ -1,0 +1,85 @@
+{
+ "trial": "recovery-0",
+ "with_journal": false,
+ "fault_kind": "delete",
+ "fault_detected": true,
+ "ready": true,
+ "error": null,
+ "timeline_s": {
+  "fault_onset": 2.015,
+  "detected": 2.015,
+  "restore_start": 2.015,
+  "manifest_verified": 2.046,
+  "staging_verified": 2.546,
+  "journal_replayed": 2.562,
+  "cutover": 2.562,
+  "ready": 2.734
+ },
+ "durations": {
+  "fault_to_detected_s": 0.0,
+  "detected_to_restore_start_s": 0.0,
+  "manifest_verification_s": 0.031,
+  "decrypt_and_verify_s": 0.5,
+  "journal_replay_s": 0.016,
+  "cutover_s": 0.0,
+  "cutover_to_ready_s": 0.172,
+  "restore_start_to_ready_s": 0.719,
+  "fault_to_ready_s": 0.719
+ },
+ "snapshot_bytes": 82579,
+ "orders_records": {
+  "txns": 23,
+  "record_versions": 23,
+  "records": 23
+ },
+ "lost_confirmed_writes": 2,
+ "lost_writes_detail": [
+  {
+   "record_id": "PO-000001",
+   "version": 2,
+   "txn_id": 23
+  },
+  {
+   "record_id": "PO-000002",
+   "version": 2,
+   "txn_id": 24
+  }
+ ],
+ "recovery": {
+  "outcome": "restored",
+  "snapshot_id": "snap-000001-cc832e97",
+  "snapshot_sequence": 1,
+  "snapshot_last_txn": 22,
+  "restored_last_txn": 22,
+  "journal_status": "disabled",
+  "journal_entries_replayed": 0,
+  "journal_last_txn": null,
+  "business_digest": "4bdbcd6903f908acd850d70650303dc2c914c5389e7445282fefca05014f5969",
+  "active_sha256_before": null,
+  "active_sha256_after": "c080391200dc36df5507aaad822d88836dc2370201621a3f8a099cea47573a24",
+  "notes": []
+ },
+ "journal_status": "disabled",
+ "probe_window": {
+  "scheduled": 36,
+  "cadence_s": 0.25,
+  "deadline_s": 1.0,
+  "records": 37,
+  "observation_s": 9.109
+ },
+ "availability": {
+  "scheduled": 36,
+  "recorded": 37,
+  "missing": 0,
+  "successful": 34,
+  "availability": 0.9444444444444444,
+  "wilson95": [
+   0.8185534265532164,
+   0.9846300134744463
+  ],
+  "estimated_healthy_s": 8.5,
+  "observed_s": 9.0
+ },
+ "key_available": true,
+ "storage": "local NTFS/ext4 file system, SQLite synchronous=FULL"
+}

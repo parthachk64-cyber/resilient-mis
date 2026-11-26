@@ -1,0 +1,308 @@
+{
+ "trial": "detection-108",
+ "seed": 108,
+ "split": {
+  "t0": "2026-03-02T00:00:00.000Z",
+  "train_end": "2026-03-14T00:00:00.000Z",
+  "dev_end": "2026-03-20T00:00:00.000Z",
+  "test_end": "2026-04-01T00:00:00.000Z",
+  "burst_days": [
+   15,
+   28,
+   29
+  ],
+  "notes": "chronological; incidents are generated wholly inside one split; month-end bursts occur in dev and test only"
+ },
+ "monitored_hours_test": 288.0,
+ "events": {
+  "train": 23235,
+  "dev": 15152,
+  "test": 30422,
+  "test_positive": 675
+ },
+ "incidents": {
+  "dev": 4,
+  "test_eligible": 12,
+  "by_kind_test": {
+   "credential_stuffing": 3,
+   "bulk_export": 3,
+   "tenant_probe": 3,
+   "low_and_slow_export": 3
+  }
+ },
+ "thresholds": {
+  "rules": 1.0,
+  "iforest": 0.7744304901348098,
+  "rule_dev_alert_rate": 6.710958996040534e-05
+ },
+ "detectors": {
+  "rules": {
+   "eligible_incidents": 12,
+   "detected": 10,
+   "missed": [
+    "INC-108-07",
+    "INC-108-11"
+   ],
+   "false_alert_groups": 0,
+   "duplicate_groups": 0,
+   "groups": 10,
+   "monitored_hours": 288.0,
+   "recall": 0.8333333333333334,
+   "recall_wilson95": [
+    0.5519691353881888,
+    0.9530348582430792
+   ],
+   "precision": 1.0,
+   "false_alerts_per_hour": 0.0,
+   "detection_delays_s": [
+    22.969,
+    28.348,
+    30.274,
+    30.856,
+    51.648,
+    55.572,
+    59.982,
+    79.832,
+    105.268,
+    907.749
+   ],
+   "event": {
+    "tp": 548,
+    "fp": 3,
+    "fn": 127,
+    "tn": 29744,
+    "precision": 0.9945553539019963,
+    "recall": 0.8118518518518518,
+    "f1": 0.8939641109298531
+   },
+   "recall_by_kind": {
+    "credential_stuffing": 1.0,
+    "bulk_export": 1.0,
+    "tenant_probe": 1.0,
+    "low_and_slow_export": 0.3333333333333333
+   }
+  },
+  "iforest": {
+   "eligible_incidents": 12,
+   "detected": 0,
+   "missed": [
+    "INC-108-04",
+    "INC-108-05",
+    "INC-108-06",
+    "INC-108-07",
+    "INC-108-08",
+    "INC-108-09",
+    "INC-108-10",
+    "INC-108-11",
+    "INC-108-12",
+    "INC-108-13",
+    "INC-108-14",
+    "INC-108-15"
+   ],
+   "false_alert_groups": 5,
+   "duplicate_groups": 0,
+   "groups": 5,
+   "monitored_hours": 288.0,
+   "recall": 0.0,
+   "recall_wilson95": [
+    0.0,
+    0.2424940095530979
+   ],
+   "precision": 0.0,
+   "false_alerts_per_hour": 0.017361111111111112,
+   "detection_delays_s": [],
+   "event": {
+    "tp": 0,
+    "fp": 5,
+    "fn": 675,
+    "tn": 29742,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": null
+   },
+   "recall_by_kind": {
+    "credential_stuffing": 0.0,
+    "bulk_export": 0.0,
+    "tenant_probe": 0.0,
+    "low_and_slow_export": 0.0
+   }
+  }
+ },
+ "iforest_curve": [
+  {
+   "quantile": 0.0,
+   "threshold": 0.37782921597788854,
+   "recall": 0.6666666666666666,
+   "false_alerts_per_hour": 9.496527777777779,
+   "precision": 0.002916514764855997
+  },
+  {
+   "quantile": 0.041625,
+   "threshold": 0.38461214424164036,
+   "recall": 0.6666666666666666,
+   "false_alerts_per_hour": 10.409722222222221,
+   "precision": 0.0026613439787092482
+  },
+  {
+   "quantile": 0.08325,
+   "threshold": 0.3889368087687012,
+   "recall": 0.6666666666666666,
+   "false_alerts_per_hour": 10.60763888888889,
+   "precision": 0.002611818478615736
+  },
+  {
+   "quantile": 0.12487500000000001,
+   "threshold": 0.39361869647407116,
+   "recall": 0.75,
+   "false_alerts_per_hour": 10.71875,
+   "precision": 0.0029069767441860465
+  },
+  {
+   "quantile": 0.1665,
+   "threshold": 0.3991361220524637,
+   "recall": 1.0,
+   "false_alerts_per_hour": 10.659722222222221,
+   "precision": 0.003893575600259572
+  },
+  {
+   "quantile": 0.208125,
+   "threshold": 0.40573603173995054,
+   "recall": 1.0,
+   "false_alerts_per_hour": 10.659722222222221,
+   "precision": 0.003893575600259572
+  },
+  {
+   "quantile": 0.24975000000000003,
+   "threshold": 0.41295816520758555,
+   "recall": 1.0,
+   "false_alerts_per_hour": 10.53125,
+   "precision": 0.003940886699507389
+  },
+  {
+   "quantile": 0.291375,
+   "threshold": 0.4214499492851664,
+   "recall": 1.0,
+   "false_alerts_per_hour": 10.09375,
+   "precision": 0.0041109969167523125
+  },
+  {
+   "quantile": 0.333,
+   "threshold": 0.43060238732366807,
+   "recall": 1.0,
+   "false_alerts_per_hour": 9.510416666666666,
+   "precision": 0.004362050163576881
+  },
+  {
+   "quantile": 0.37462500000000004,
+   "threshold": 0.440402152324959,
+   "recall": 1.0,
+   "false_alerts_per_hour": 8.503472222222221,
+   "precision": 0.004876066639577408
+  },
+  {
+   "quantile": 0.41625,
+   "threshold": 0.45510802409527473,
+   "recall": 1.0,
+   "false_alerts_per_hour": 7.423611111111111,
+   "precision": 0.005581395348837209
+  },
+  {
+   "quantile": 0.45787500000000003,
+   "threshold": 0.46752687213628835,
+   "recall": 1.0,
+   "false_alerts_per_hour": 6.670138888888889,
+   "precision": 0.006207966890843249
+  },
+  {
+   "quantile": 0.49950000000000006,
+   "threshold": 0.4815702677538857,
+   "recall": 1.0,
+   "false_alerts_per_hour": 5.916666666666667,
+   "precision": 0.006993006993006993
+  },
+  {
+   "quantile": 0.5411250000000001,
+   "threshold": 0.49574544220372274,
+   "recall": 1.0,
+   "false_alerts_per_hour": 5.128472222222222,
+   "precision": 0.008059100067159167
+  },
+  {
+   "quantile": 0.58275,
+   "threshold": 0.5189027801044624,
+   "recall": 1.0,
+   "false_alerts_per_hour": 4.072916666666667,
+   "precision": 0.010126582278481013
+  },
+  {
+   "quantile": 0.624375,
+   "threshold": 0.5345562884240294,
+   "recall": 1.0,
+   "false_alerts_per_hour": 3.548611111111111,
+   "precision": 0.01160541586073501
+  },
+  {
+   "quantile": 0.666,
+   "threshold": 0.5493248493472336,
+   "recall": 1.0,
+   "false_alerts_per_hour": 3.173611111111111,
+   "precision": 0.012958963282937365
+  },
+  {
+   "quantile": 0.7076250000000001,
+   "threshold": 0.5691961482696424,
+   "recall": 1.0,
+   "false_alerts_per_hour": 2.7083333333333335,
+   "precision": 0.015151515151515152
+  },
+  {
+   "quantile": 0.7492500000000001,
+   "threshold": 0.5829738520261409,
+   "recall": 1.0,
+   "false_alerts_per_hour": 2.6284722222222223,
+   "precision": 0.015604681404421327
+  },
+  {
+   "quantile": 0.790875,
+   "threshold": 0.5925068860240225,
+   "recall": 1.0,
+   "false_alerts_per_hour": 2.6493055555555554,
+   "precision": 0.015483870967741935
+  },
+  {
+   "quantile": 0.8325,
+   "threshold": 0.6040015082822697,
+   "recall": 1.0,
+   "false_alerts_per_hour": 2.5659722222222223,
+   "precision": 0.015978695073235686
+  },
+  {
+   "quantile": 0.874125,
+   "threshold": 0.6210466197585998,
+   "recall": 1.0,
+   "false_alerts_per_hour": 2.3993055555555554,
+   "precision": 0.017069701280227598
+  },
+  {
+   "quantile": 0.9157500000000001,
+   "threshold": 0.6424165398962877,
+   "recall": 1.0,
+   "false_alerts_per_hour": 2.0729166666666665,
+   "precision": 0.019704433497536946
+  },
+  {
+   "quantile": 0.9573750000000001,
+   "threshold": 0.6694612498518296,
+   "recall": 0.9166666666666666,
+   "false_alerts_per_hour": 1.2881944444444444,
+   "precision": 0.028795811518324606
+  },
+  {
+   "quantile": 0.999,
+   "threshold": 0.743849076325075,
+   "recall": 0.5,
+   "false_alerts_per_hour": 0.059027777777777776,
+   "precision": 0.2608695652173913
+  }
+ ]
+}

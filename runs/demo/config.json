@@ -1,0 +1,55 @@
+{
+  "benchmark": {
+    "detection_trials": 10,
+    "latency_reps": 200,
+    "orders_per_department": 12,
+    "recovery_trials": 10,
+    "snapshot_reps": 20
+  },
+  "detection": {
+    "alert_merge_s": 600,
+    "iforest": {
+      "max_samples": 256,
+      "n_estimators": 200
+    },
+    "match_grace_s": 600,
+    "rules": {
+      "deny_per_window": 5,
+      "export_per_window": 10,
+      "requests_per_window": 60,
+      "tenant_hops": 2
+    },
+    "threshold_policy": "match the rule baseline's development false-alert rate (dev non-incident events only)",
+    "window_s": 300
+  },
+  "probes": {
+    "cadence_s": 0.25,
+    "deadline_s": 1.0,
+    "fault_at_s": 2.0,
+    "observation_s": 9.0
+  },
+  "rsa_bits": 3072,
+  "service": {
+    "session_ttl_s": 3600
+  },
+  "tenants": [
+    "tenant-a",
+    "tenant-b"
+  ],
+  "workload": {
+    "analysts_per_tenant": 6,
+    "burst_days_dev": [
+      3
+    ],
+    "burst_days_test": [
+      10,
+      11
+    ],
+    "days_dev": 6,
+    "days_test": 12,
+    "days_train": 12,
+    "incidents_dev": 4,
+    "incidents_test": 12,
+    "managers_per_tenant": 3
+  }
+}

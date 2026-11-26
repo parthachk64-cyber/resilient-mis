@@ -19,6 +19,15 @@ REPO_ROOT = Path(__file__).resolve().parents[2]
 BLUE, ORANGE, GREEN, GREY, RED = "#1b6ca8", "#c4511d", "#2a7f3f", "#888888", "#b22222"
 
 
+def _claims_path() -> Path:
+    """Chapter-reported claims live in the repository, not the installed package: look in the working directory first."""
+    for base in (Path.cwd(), REPO_ROOT):
+        p = base / "references" / "reported" / "chapter_claims.csv"
+        if p.is_file():
+            return p
+    raise FileNotFoundError("references/reported/chapter_claims.csv not found; run report-build from the repository root")
+
+
 def _f(x: Any, n: int = 3) -> str:
     return "undefined" if x is None else (f"{x:.{n}f}" if isinstance(x, float) else str(x))
 
@@ -219,7 +228,7 @@ def build(run: Path, out_md: Path, fig_dir: Path | None = None) -> Path:
          "The full chapter was not supplied and the Springer page redirected to a login, so only the public-abstract claims below are recorded, with their qualifiers intact "
          "(`references/reported/chapter_claims.csv`). Definitions, data, hardware and trial counts are NOT established.", "",
          "| Claim | As published | Value status | Not established |", "|---|---|---|---|"]
-    for r in csv.DictReader(open(REPO_ROOT / "references" / "reported" / "chapter_claims.csv", encoding="utf-8")):
+    for r in csv.DictReader(open(_claims_path(), encoding="utf-8")):
         L.append(f"| {r['published_claim']} | {r['qualifier_preserved']} | {r['value_status']} | {r['what_is_not_established']} |")
     L += ["", "## B. Independent measurement on a named external dataset", "", "**Not run.** No authorised external dataset was supplied. The importer accepts one (`resilient-mis data-validate`); see `docs/data.md`.", "",
           f"## C. Local synthetic measurements (run `{rid}`)", "",

@@ -1,0 +1,16 @@
+trial,with_journal,fault_to_detected_s,detected_to_restore_start_s,manifest_verification_s,decrypt_and_verify_s,journal_replay_s,cutover_s,cutover_to_ready_s
+recovery-0,False,0.0,0.0,0.031,0.5,0.016,0.0,0.172
+recovery-0,True,0.0,0.016,0.031,0.313,0.265,0.0,0.125
+recovery-1,False,0.0,0.0,0.031,0.422,0.016,0.0,0.172
+recovery-1,True,0.047,0.0,0.031,0.375,0.266,0.0,0.109
+recovery-2,False,0.0,0.016,0.047,0.453,0.016,0.0,0.171
+recovery-2,True,0.0,0.016,0.031,0.406,0.297,0.016,0.141
+recovery-3,False,0.0,0.0,0.031,0.484,0.016,0.0,0.172
+recovery-3,True,0.063,0.015,0.078,3.063,1.484,0.063,1.093
+recovery-4,False,0.0,0.0,0.047,0.375,0.016,0.0,0.156
+recovery-4,True,0.0,0.031,0.078,3.297,1.64,0.016,0.781
+recovery-5,True,0.047,0.0,0.031,0.375,0.282,0.0,0.125
+recovery-6,True,0.0,0.016,0.031,0.422,0.266,0.015,0.125
+recovery-7,True,0.031,0.0,0.047,0.453,0.282,0.015,0.141
+recovery-8,True,0.0,0.0,0.031,0.406,0.297,0.0,0.125
+recovery-9,True,0.031,0.0,0.047,0.484,0.297,0.016,0.14
