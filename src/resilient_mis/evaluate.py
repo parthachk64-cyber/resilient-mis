@@ -156,8 +156,8 @@ def recovery_trial(trial: int, cfg: dict[str, Any], run_dir: Path, template_keys
         timer = PhaseTimer()
         t0 = runner.start()
         time.sleep(float(pc["fault_at_s"]))
-        timer.mark("fault_onset")
         inject_fault(fx.home, fault_kind)
+        timer.mark("fault_onset")  # the moment the damage has been applied
         detected = wait_until(lambda: not svc.health()["ok"], 5.0, 0.01)
         timer.mark("detected")
         err = None

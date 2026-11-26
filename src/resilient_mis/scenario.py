@@ -75,14 +75,21 @@ def inject_fault(home: Home, kind: str) -> str:
     """Damage the local store of a DISPOSABLE fixture only. Refuses any other home."""
     if not home.is_disposable_fixture:
         raise PermissionError("fault injection is restricted to disposable fixture homes (no .mis-fixture marker)")
-    p = home.store_path
-    if kind == "delete":
-        p.unlink()
-    elif kind == "corrupt":
-        size = max(p.stat().st_size, 4096)
-        p.write_bytes(b"\x00corrupted-by-fixture-fault\x00" * (size // 27 + 1))
-    else:
+    if kind not in ("delete", "corrupt"):
         raise ValueError("fault kind must be 'delete' or 'corrupt'")
+    p = home.store_path
+    for attempt in range(100):  # on Windows a concurrent reader (probe, antivirus) can briefly hold the file open
+        try:
+            if kind == "delete":
+                p.unlink()
+            else:
+                size = max(p.stat().st_size, 4096)
+                p.write_bytes(b"\x00corrupted-by-fixture-fault\x00" * (size // 27 + 1))
+            break
+        except PermissionError:
+            if attempt == 99:
+                raise
+            time.sleep(0.05)
     return kind
 
 
