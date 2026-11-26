@@ -1,0 +1,4 @@
+* text=auto eol=lf
+src/resilient_mis/data/** -text
+*.enc binary
+*.png binary
