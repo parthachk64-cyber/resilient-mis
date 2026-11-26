@@ -108,6 +108,7 @@ def event_metrics(is_positive: Sequence[bool], is_alert: Sequence[bool]) -> dict
 
 def availability(scheduled: int, records: list[dict[str, Any]], cadence_s: float) -> dict[str, Any]:
     """Business-probe availability. Scheduled probes with no record count as failures (``missing``)."""
+    scheduled = max(scheduled, len(records))  # a probe that fired in the final slot can never exceed the schedule
     ok = sum(1 for r in records if r["ok"])
     missing = max(0, scheduled - len(records))
     return {"scheduled": scheduled, "recorded": len(records), "missing": missing, "successful": ok,

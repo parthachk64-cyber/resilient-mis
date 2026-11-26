@@ -93,3 +93,8 @@ def test_paired_overhead_denominator_is_baseline():
     assert o["abs_change_p50"] == 5 and o["rel_change_p50"] == 0.5
     z = m.paired_overhead([0, 0], [1, 1])
     assert z["rel_change_p50"] is None  # zero baseline: undefined, not infinite
+
+
+def test_availability_never_reports_more_probes_than_scheduled():
+    a = m.availability(scheduled=3, records=[{"ok": True}] * 5, cadence_s=0.1)
+    assert a["scheduled"] == 5 and a["missing"] == 0 and a["availability"] == 1.0 and a["wilson95"][1] <= 1.0
