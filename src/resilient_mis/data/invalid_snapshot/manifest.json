@@ -1,0 +1,27 @@
+{
+  "business_digest": "0000000000000000000000000000000000000000000000000000000000000000",
+  "created_at": "2026-01-01T00:00:00.000Z",
+  "files": [
+    {
+      "bytes": 84,
+      "name": "store.db.enc",
+      "sha256": "81c4d82af19436ea8732f7f2a0bfd2a96fe20eb7f2a75aafe03ed97e901341da"
+    }
+  ],
+  "last_txn_hash": "0000000000000000000000000000000000000000000000000000000000000000",
+  "last_txn_id": 1,
+  "manifest_version": 1,
+  "record_versions": 1,
+  "schema_version": "store.v1",
+  "scope": {
+    "dataset": "po-register",
+    "tenants": [
+      "tenant-a",
+      "tenant-b"
+    ]
+  },
+  "sequence": 999999,
+  "signer_fingerprint": "throwaway",
+  "snapshot_id": "snap-999999-deadbeef",
+  "wrap_key_id": "wrap-backup-g001"
+}

@@ -1,0 +1,21 @@
+# Defaults are embedded in src/resilient_mis/config.py; this file shows every tunable and is loaded with --config.
+rsa_bits: 3072
+tenants: [tenant-a, tenant-b]
+detection:
+  window_s: 300
+  alert_merge_s: 600
+  match_grace_s: 600
+  rules: {deny_per_window: 5, export_per_window: 10, requests_per_window: 60, tenant_hops: 2}
+  iforest: {n_estimators: 200, max_samples: 256}
+workload:
+  days_train: 12
+  days_dev: 6
+  days_test: 12
+  managers_per_tenant: 3
+  analysts_per_tenant: 6
+  incidents_dev: 4
+  incidents_test: 12
+  burst_days_dev: [3]
+  burst_days_test: [10, 11]
+probes: {cadence_s: 0.25, deadline_s: 1.0, observation_s: 9.0, fault_at_s: 2.0}
+benchmark: {detection_trials: 10, recovery_trials: 10, latency_reps: 200, snapshot_reps: 20, orders_per_department: 12}

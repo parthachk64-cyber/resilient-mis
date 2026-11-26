@@ -1,0 +1,36 @@
+cff-version: 1.2.0
+message: "If you use this companion, please cite the chapter it accompanies and this software."
+title: "resilient-mis: an offline research companion to a published resilient MIS design"
+type: software
+version: 0.1.0
+authors:
+  - family-names: Chakraborty
+    given-names: Partha
+repository-code: "https://github.com/parthachk64-cyber/resilient-mis"
+license: MIT
+preferred-citation:
+  type: conference-paper
+  title: "Resilient MIS Design Using Cryptographic and Cyber-Security Techniques"
+  authors:
+    - family-names: Ansar
+      given-names: Md Talha Bin
+    - family-names: Sikder
+      given-names: Mohammad Somon
+    - family-names: Tuhin
+      given-names: Md Kazi
+    - family-names: Das
+      given-names: Niropam
+    - family-names: Chakraborty
+      given-names: Partha
+    - family-names: Rahman
+      given-names: Habiba
+  collection-title: "Innovative Computing and Communications (ICICC 2026)"
+  collection-type: "Lecture Notes in Networks and Systems"
+  volume: 2037
+  start: 317
+  end: 331
+  publisher:
+    name: Springer
+  doi: "10.1007/978-3-032-30008-9_24"
+  url: "https://link.springer.com/chapter/10.1007/978-3-032-30008-9_24"
+  year: 2026

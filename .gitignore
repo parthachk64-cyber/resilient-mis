@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+# private material and local state must never be committed
+keys/
+*.pem
+home/
+*.db
+*.db.enc
+*.FENCED
+.env
+# generated scratch; committed evidence lives under runs/<id>/ and docs/
+runs/*/probes/ledger.jsonl
+!src/resilient_mis/data/invalid_snapshot/*

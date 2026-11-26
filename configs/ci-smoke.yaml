@@ -1,0 +1,4 @@
+rsa_bits: 2048
+workload: {days_train: 7, days_dev: 7, days_test: 7, incidents_dev: 4, incidents_test: 8, managers_per_tenant: 2, analysts_per_tenant: 3, burst_days_dev: [1], burst_days_test: [1]}
+probes: {observation_s: 5.0, fault_at_s: 0.75}
+benchmark: {detection_trials: 2, recovery_trials: 2, latency_reps: 15, snapshot_reps: 3, orders_per_department: 6}

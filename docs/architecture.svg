@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#333"/></marker>
+  </defs>
+  <rect width="900" height="520" fill="#ffffff"/>
+  <text x="450" y="26" text-anchor="middle" font-size="16" font-weight="600">Resilient MIS companion: key boundary and trusted restore state</text>
+
+  <rect x="20" y="50" width="250" height="170" rx="10" fill="#fdecea" stroke="#b22222" stroke-width="2"/>
+  <text x="145" y="74" text-anchor="middle" font-weight="600" fill="#b22222">KEY CUSTODY  (keys/)</text>
+  <text x="34" y="100">RSA wrapping keys per tenant + backup</text>
+  <text x="34" y="120">versioned g001, g002 ... never deleted</text>
+  <text x="34" y="144">Ed25519 signing keys: manifest, journal</text>
+  <text x="34" y="164">telemetry HMAC key</text>
+  <text x="34" y="192" font-style="italic">never in DB, backup, log or Git</text>
+
+  <rect x="320" y="50" width="260" height="170" rx="10" fill="#e8f3ea" stroke="#2a7f3f" stroke-width="2"/>
+  <text x="450" y="74" text-anchor="middle" font-weight="600" fill="#2a7f3f">TRUST STATE  (trust/)  outside recoverable data</text>
+  <text x="334" y="100">pinned anchor.json (verification key fingerprint)</text>
+  <text x="334" y="120">checkpoints.jsonl: signed, hash-chained</text>
+  <text x="334" y="140">= the LATEST APPROVED checkpoint</text>
+  <text x="334" y="164">snapshot sequence counter</text>
+  <text x="334" y="192" font-style="italic">source of every restore decision</text>
+
+  <rect x="630" y="50" width="250" height="170" rx="10" fill="#e8eefb" stroke="#1b6ca8" stroke-width="2"/>
+  <text x="755" y="74" text-anchor="middle" font-weight="600" fill="#1b6ca8">CURRENT POLICY  (policy/)</text>
+  <text x="644" y="100">roles, tenant + department scope</text>
+  <text x="644" y="120">purposes, device trust, sessions</text>
+  <text x="644" y="144">revocations + epoch</text>
+  <text x="644" y="192" font-style="italic">never snapshotted, never restored</text>
+
+  <rect x="20" y="300" width="400" height="190" rx="10" fill="#fff8e1" stroke="#c4511d" stroke-width="2"/>
+  <text x="220" y="324" text-anchor="middle" font-weight="600" fill="#c4511d">BUSINESS DATA  (data/store.db)  the only thing recovery replaces</text>
+  <text x="34" y="350">envelope-encrypted record versions</text>
+  <text x="34" y="370">AES-256-GCM + RSA-OAEP-SHA256, AAD = tenant|id|schema|version</text>
+  <text x="34" y="394">hash-chained transaction log, idempotency keys</text>
+  <text x="34" y="418">fence file during cutover</text>
+  <text x="34" y="446" font-style="italic">journal/ (signed WAL) and backups/ (encrypted snapshot +</text>
+  <text x="34" y="464" font-style="italic">signed manifest) live beside it, outside the store</text>
+
+  <rect x="470" y="300" width="410" height="190" rx="10" fill="#f3f3f3" stroke="#555" stroke-width="2"/>
+  <text x="675" y="324" text-anchor="middle" font-weight="600">RECOVERY</text>
+  <text x="484" y="350">1 authorise recovery_operator</text>
+  <text x="484" y="370">2 verify manifest vs anchor, staleness, approval</text>
+  <text x="484" y="390">3 decrypt to staging, verify chain + every record</text>
+  <text x="484" y="410">4 verify + replay signed journal</text>
+  <text x="484" y="430">5 fence, atomic switch (or no-op if already restored)</text>
+  <text x="484" y="450">6 business probes decide readiness:</text>
+  <text x="484" y="470">correct report, analyst still denied, new write commits</text>
+
+  <path d="M450,220 L450,300 L420,360" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="458" y="262" font-size="12">approves / refuses candidate</text>
+  <path d="M145,220 L145,300" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <text x="152" y="262" font-size="12">wrap / unwrap data keys</text>
+  <path d="M470,395 L420,395" fill="none" stroke="#333" stroke-width="1.6" marker-end="url(#a)"/>
+  <path d="M755,220 L755,300" fill="none" stroke="#333" stroke-width="1.6" stroke-dasharray="5,4" marker-end="url(#a)"/>
+  <text x="762" y="262" font-size="12">read by probes, untouched by restore</text>
+</svg>

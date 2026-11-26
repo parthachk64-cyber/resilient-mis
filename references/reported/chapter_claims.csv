@@ -1,0 +1,6 @@
+claim_id,published_claim,qualifier_preserved,source_location,value_status,what_is_not_established
+C1,detection rate,"over 93%",public abstract (as given in the task brief; Springer page itself was not readable by this build),sourced-qualitative-bound,"unit, definition, estimator, dataset, labels, time window and trial count are not in the public preview"
+C2,availability,"up to 99%",public abstract (as given in the task brief),sourced-upper-bound,"observation window, probe cadence, success criterion and uptime definition are not in the public preview; 'up to' is a best case, not a promise"
+C3,recovery time,"under 22 seconds",public abstract (as given in the task brief),sourced-upper-bound,"definition of start and stop, data size, hardware and trial count are not in the public preview"
+C4,latency overhead,"moderate (qualitative)",public abstract (as given in the task brief),sourced-qualitative,"no numeric overhead, baseline, workload or percentile is given"
+C5,techniques,"symmetric and asymmetric encryption; role- and context-dependent authorization; continuous anomaly detection; integrity-checked recovery",public abstract (as given in the task brief),sourced-qualitative,"the cryptographic algorithms, key sizes, anomaly estimator, benchmark data and comparison systems are not in the public preview"

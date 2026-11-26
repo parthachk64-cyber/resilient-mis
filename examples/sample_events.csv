@@ -1,0 +1,4 @@
+event_time,arrival_time,principal,tenant,operation,decision,correlation_id
+2026-03-02T09:00:01Z,2026-03-02T09:00:02Z,p-demo0001,tenant-a,read_order,allow,demo-0001
+2026-03-02T09:00:30Z,2026-03-02T09:00:31Z,p-demo0001,tenant-a,spending_report,allow,demo-0002
+2026-03-02T09:01:10Z,2026-03-02T09:01:12Z,p-demo0002,tenant-b,read_order,deny,demo-0003
